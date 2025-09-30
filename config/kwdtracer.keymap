@@ -13,11 +13,12 @@
                 compatible = "zmk,keymap";
                 default_layer {
                         display-name = "Default Layer";
+                        
                         bindings = <
-   &bt BT_CLR    &kp W    &kp F  &kp P     &kp B    &kp ESC  &kp DEL    &bt BT_CLR    &kp L     &kp U     &kp Y     &kp SEMI
-   &kp A    &kp R    &kp S  &kp T     &kp G    &kp F5   &kp K_MUTE &kp M    &kp N     &kp E     &kp I     &kp O
-   &kp Z    &kp X    &kp C  &kp D     &kp V    &kp TAB  &kp DOT    &kp K    &kp H     &kp COMMA &kp DOT   &kp SLASH
-            &kp DOWN &kp UP &kp SPACE &kp RET  &kp BSPC &kp DEL    &kp LEFT &kp RIGHT
+   &kp Q    &kp W    &kp F  &kp P     &kp B    &kp ESC    &kp DEL     &kp J    &kp L     &kp U     &kp Y     &kp SEMI
+   &kp A    &kp R    &kp S  &kp T     &kp G    &bt BT_CLR &bt BT_CLR  &kp M    &kp N     &kp E     &kp I     &kp O
+   &kp Z    &kp X    &kp C  &kp D     &kp V    &kp TAB    &bootloader &kp K    &kp H     &kp COMMA &kp DOT   &kp SLASH
+            &kp DOWN &kp UP &kp SPACE &kp RET  &kp BSPC   &sys_reset  &kp LEFT &kp RIGHT
                         >;
                 };
 
