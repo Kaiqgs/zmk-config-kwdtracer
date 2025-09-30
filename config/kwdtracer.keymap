@@ -15,10 +15,10 @@
                         display-name = "Default Layer";
                         
                         bindings = <
-   &kp Q    &kp W    &kp F  &kp P     &kp B    &kp ESC       &kp DEL     &kp J    &kp L     &kp U     &kp Y     &kp SEMI
-   &kp A    &kp R    &kp S  &kp T     &kp G    &bt BT_CLR    &bt BT_CLR  &kp M    &kp N     &kp E     &kp I     &kp O
-   &kp Z    &kp X    &kp C  &kp D     &kp V    &bootloader   &bootloader &kp K    &kp H     &kp COMMA &kp DOT   &kp SLASH
-            &kp DOWN &kp UP &kp SPACE &kp RET  &kp TAB   &sys_reset  &kp LEFT &kp RIGHT
+   &kp Q    &kp W    &kp F  &kp P     &kp B    &bootloader     &bootloader    &kp J    &kp L      &kp U     &kp Y     &kp SEMI
+   &kp A    &kp R    &kp S  &kp T     &kp G    &bt BT_SEL 0    &bt BT_SEL 0   &kp M    &kp N      &kp E     &kp I     &kp O
+   &kp Z    &kp X    &kp C  &kp D     &kp V    &bt BT_CLR      &bt BT_CLR     &kp K    &kp H      &kp COMMA &kp DOT   &kp SLASH
+   /**/     &kp DOWN &kp UP &kp SPACE &kp RET  /**/            /**/           &kp TAB  &kp BSPC   &kp LEFT  &kp RIGHT /**/
                         >;
                 };
 
