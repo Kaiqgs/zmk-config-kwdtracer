@@ -23,5 +23,3 @@ include:
     shield: kwdtracer_left
   - board: nice_nano_v2
     shield: kwdtracer_right
-  - board: nice_nano_v2
-    shield: settings_reset
