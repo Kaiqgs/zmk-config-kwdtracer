@@ -1,0 +1,5 @@
+config SHIELD_KWDTRACER_LEFT
+	def_bool $(shields_list_contains,kwdtracer_left)
+    
+config SHIELD_KWDTRACER_RIGHT
+	def_bool $(shields_list_contains,kwdtracer_right)
