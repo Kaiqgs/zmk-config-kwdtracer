@@ -8,6 +8,16 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
+if SHIELD_KWDTRACER_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "kwdtracer_right"
+
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    default y
+
+endif
+
 if SHIELD_KWDTRACER_LEFT || SHIELD_KWDTRACER_RIGHT
 
 config ZMK_SPLIT
