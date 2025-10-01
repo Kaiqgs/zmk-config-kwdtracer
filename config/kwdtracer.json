@@ -1,0 +1,85 @@
+{
+  "keyboard": "kwdtracer",
+  "keymap": "default",
+  "layout": "LAYOUT",
+  "layer_names": [
+    "default"
+  ],
+  "layers": [
+    [
+      "Q", "W", "F", "P", "B", "BOOTLDR",
+      "BOOTLDR", "J", "L", "U", "Y", "SEMI",
+      
+      "A", "R", "S", "T", "G", "BT_SEL 0",
+      "BT_SEL 0", "M", "N", "E", "I", "O",
+      
+      "Z", "X", "C", "D", "V", "BT_CLR",
+      "BT_CLR", "K", "H", "COMMA", "DOT", "SLASH",
+      
+      "DOWN", "UP", "SPACE", "SYS_RST",
+      "SYS_RST", "BSPC", "LEFT", "RIGHT"
+    ]
+  ],
+  "layout_options": {
+    "split": true,
+    "split_count": 2
+  },
+  "layouts": {
+    "LAYOUT": {
+      "layout": [
+        { "label": "Q", "row": 0, "col": 0, "x": 0, "y": 0 },
+        { "label": "W", "row": 0, "col": 1, "x": 1, "y": 0 },
+        { "label": "F", "row": 0, "col": 2, "x": 2, "y": 0 },
+        { "label": "P", "row": 0, "col": 3, "x": 3, "y": 0 },
+        { "label": "B", "row": 0, "col": 4, "x": 4, "y": 0 },
+        { "label": "BOOTLDR", "row": 0, "col": 5, "x": 5, "y": 0 },
+        
+        { "label": "BOOTLDR", "row": 0, "col": 6, "x": 8, "y": 0 },
+        { "label": "J", "row": 0, "col": 7, "x": 9, "y": 0 },
+        { "label": "L", "row": 0, "col": 8, "x": 10, "y": 0 },
+        { "label": "U", "row": 0, "col": 9, "x": 11, "y": 0 },
+        { "label": "Y", "row": 0, "col": 10, "x": 12, "y": 0 },
+        { "label": ";", "row": 0, "col": 11, "x": 13, "y": 0 },
+        
+        { "label": "A", "row": 1, "col": 0, "x": 0, "y": 1 },
+        { "label": "R", "row": 1, "col": 1, "x": 1, "y": 1 },
+        { "label": "S", "row": 1, "col": 2, "x": 2, "y": 1 },
+        { "label": "T", "row": 1, "col": 3, "x": 3, "y": 1 },
+        { "label": "G", "row": 1, "col": 4, "x": 4, "y": 1 },
+        { "label": "BT0", "row": 1, "col": 5, "x": 5, "y": 1 },
+        
+        { "label": "BT0", "row": 1, "col": 6, "x": 8, "y": 1 },
+        { "label": "M", "row": 1, "col": 7, "x": 9, "y": 1 },
+        { "label": "N", "row": 1, "col": 8, "x": 10, "y": 1 },
+        { "label": "E", "row": 1, "col": 9, "x": 11, "y": 1 },
+        { "label": "I", "row": 1, "col": 10, "x": 12, "y": 1 },
+        { "label": "O", "row": 1, "col": 11, "x": 13, "y": 1 },
+        
+        { "label": "Z", "row": 2, "col": 0, "x": 0, "y": 2 },
+        { "label": "X", "row": 2, "col": 1, "x": 1, "y": 2 },
+        { "label": "C", "row": 2, "col": 2, "x": 2, "y": 2 },
+        { "label": "D", "row": 2, "col": 3, "x": 3, "y": 2 },
+        { "label": "V", "row": 2, "col": 4, "x": 4, "y": 2 },
+        { "label": "BT_CLR", "row": 2, "col": 5, "x": 5, "y": 2 },
+        
+        { "label": "BT_CLR", "row": 2, "col": 6, "x": 8, "y": 2 },
+        { "label": "K", "row": 2, "col": 7, "x": 9, "y": 2 },
+        { "label": "H", "row": 2, "col": 8, "x": 10, "y": 2 },
+        { "label": ",", "row": 2, "col": 9, "x": 11, "y": 2 },
+        { "label": ".", "row": 2, "col": 10, "x": 12, "y": 2 },
+        { "label": "/", "row": 2, "col": 11, "x": 13, "y": 2 },
+        
+        { "label": "DOWN", "row": 3, "col": 1, "x": 1, "y": 3 },
+        { "label": "UP", "row": 3, "col": 2, "x": 2, "y": 3 },
+        { "label": "SPACE", "row": 3, "col": 3, "x": 3, "y": 3 },
+        { "label": "RESET", "row": 3, "col": 4, "x": 4, "y": 3 },
+        
+        { "label": "RESET", "row": 3, "col": 7, "x": 9, "y": 3 },
+        { "label": "BSPC", "row": 3, "col": 8, "x": 10, "y": 3 },
+        { "label": "LEFT", "row": 3, "col": 9, "x": 11, "y": 3 },
+        { "label": "RIGHT", "row": 3, "col": 10, "x": 12, "y": 3 }
+      ]
+    }
+  }
+}
+

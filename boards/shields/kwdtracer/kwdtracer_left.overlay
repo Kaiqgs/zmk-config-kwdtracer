@@ -27,3 +27,9 @@
         };
     };
 };
+
+/ {
+    chosen {
+        zmk,ble-indicator = &status_led;
+    };
+};
