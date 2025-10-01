@@ -19,18 +19,11 @@
 };
 
 / {
-    split_status_leds {
-        compatible = "gpio-leds";
-        peripheral_led: led_peripheral_status {
-            gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
-            label = "Split peripheral LED";
-        };
-    };
-};
-
-/ {
-    chosen {
-        zmk,split-peripheral-status-led = &peripheral_led;
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        label = "EXT_POWER";
+        control-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
+        init-delay-ms = <50>;
     };
 };
 

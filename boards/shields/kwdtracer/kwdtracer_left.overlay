@@ -19,17 +19,10 @@
 };
 
 / {
-    connection_status_leds {
-        compatible = "gpio-leds";
-        status_led: led_status {
-            gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
-            label = "Connection status LED";
-        };
-    };
-};
-
-/ {
-    chosen {
-        zmk,ble-indicator = &status_led;
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        label = "EXT_POWER";
+        control-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
+        init-delay-ms = <50>;
     };
 };
