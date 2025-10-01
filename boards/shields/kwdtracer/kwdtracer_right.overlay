@@ -17,3 +17,21 @@
         , <&pro_micro 4 GPIO_ACTIVE_HIGH>
         ;
 };
+
+/ {
+    split_status_led {
+        compatible = "gpio-leds";
+        split_led: led_split_status {
+            gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;  // Use an available GPIO pin
+            label = "Split status LED";
+        };
+    };
+};
+
+/ {
+    chosen {
+        zmk,split-peripheral-status-led = &split_led;
+    };
+};
+
+

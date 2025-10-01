@@ -17,3 +17,13 @@
         , <&pro_micro 19 GPIO_ACTIVE_HIGH>
         ;
 };
+
+/ {
+    connection_status_led {
+        compatible = "gpio-leds";
+        blue_led: led_connection_status {
+            gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;  // Use an available GPIO pin
+            label = "Connection status LED";
+        };
+    };
+};
