@@ -6,83 +6,92 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        colemak {
-            display-name = "Default Layer";
-            bindings = <
-&kp Q        &kp W       &kp F        &kp P              &kp B       &bootloader   &bootloader   &kp J       &kp L              &kp U       &kp Y        &kp SEMI
-&mt LMETA A  &mt LALT R  &mt LCTRL S  &mt LSHFT T        &kp G       &bt BT_SEL 0  &bt BT_SEL 0  &kp M       &mt RSHIFT N       &mt RALT E  &mt RCTRL I  &mt RMETA O
-&kp Z        &kp X       &kp C        &kp D              &kp V       &bt BT_CLR    &bt BT_CLR    &kp K       &kp H              &kp COMMA   &kp DOT      &kp SLASH
-             &kp DOWN    &kp UP       &ext_power EP_TOG  &sys_reset                              &sys_reset  &ext_power EP_TOG  &kp LEFT    &kp RIGHT
-            >;
-        };
-
         layers {
             bindings = <
-&trans  &trans  &trans    &trans     &trans       &lt 2 ESC    &lt 5 DEL  &trans         &trans       &trans    &trans     &trans
-&trans  &trans  &trans    &trans     &trans       &lt 3 TAB    &mo 6      &trans         &trans       &trans    &trans     &trans
-&trans  &trans  &trans    &trans     &trans       &lt 2 ENTER  &mo 7      &trans         &trans       &trans    &trans     &trans
-        &kp UP  &kp DOWN  &kp SPACE  &lt 3 SPACE                          &kp BACKSPACE  &lt 5 ENTER  &kp LEFT  &kp RIGHT
+&trans  &trans  &trans  &trans     &trans       &lt 3 ESC    &lt 8 DEL  &trans         &trans       &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans       &lt 4 TAB    &mo 6      &trans         &trans       &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans       &lt 7 ENTER  &mo 7      &trans         &trans       &trans  &trans  &trans
+        &trans  &trans  &kp SPACE  &lt 2 SPACE                          &kp BACKSPACE  &lt 5 ENTER  &trans  &trans
             >;
         };
 
-        numbers {
+        colemodh {
+            display-name = "Default Layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
+&kp Q        &kp W       &kp F        &kp P        &kp B   &trans  &trans  &kp J   &kp L         &kp U       &kp Y        &kp SEMI
+&mt LMETA A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G   &trans  &trans  &kp M   &mt RSHIFT N  &mt RALT E  &mt RCTRL I  &mt RMETA O
+&kp Z        &kp X       &kp C        &kp D        &kp V   &trans  &trans  &kp K   &kp H         &kp COMMA   &kp DOT      &kp SLASH
+             &kp DOWN    &kp UP       &trans       &trans                  &trans  &trans        &kp LEFT    &kp RIGHT
             >;
         };
 
         symbols {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
+&kp N1        &kp N2         &kp N3        &kp N4        &kp N5         &kp LS(DQT)  &kp GRAVE  &kp N6      &kp N7       &kp N8        &kp N9         &kp N0
+&kp MINUS     &kp EQUAL      &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(UNDER)  &kp SQT      &kp SQT    &kp LSHFT   &kp RSHFT    &kp RCTRL     &kp RALT       &kp LG(RGUI)
+&kp LS(PLUS)  &kp LS(POUND)  &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(PRCNT)  &kp GRAVE    &kp GRAVE  &kp LS(AT)  &kp LBKT     &kp RBKT      &kp LS(AMPS)   &kp BSLH
+              &kp LS(CARET)  &kp LS(DLLR)  &kp ESC       &none                                  &kp SQT     &kp LS(DQT)  &kp LS(EXCL)  &kp LS(TILDE)
+            >;
+        };
+
+        numbers {
+            bindings = <
+&kp J  &kp L     &kp U      &kp Y     &kp SEMI  &none          &none    &kp LBKT  &kp N7         &kp N8  &kp N9      &kp PLUS
+&kp O  &kp I     &kp E      &kp N     &kp M     &kp RET        &none    &kp SEMI  &kp N4         &kp N5  &kp N6      &kp MINUS
+&kp K  &kp H     &kp COMMA  &kp DOT   &kp FSLH  &kp KP_DIVIDE  &kp DOT  &kp RET   &kp N1         &kp N2  &kp N3      &kp EQUAL
+       &kp LEFT  &kp RIGHT  &kp BSPC  &kp DEL                           &kp N0    &kp KP_DIVIDE  &kp N0  &kp KP_DOT
             >;
         };
 
         functions {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
+&kp F1      &kp F2           &kp F3     &kp F4     &kp F5    &trans  &trans  &kp F6  &kp F7     &kp F8     &kp F9    &kp F10
+&caps_word  &kp PRINTSCREEN  &kp LC(S)  &kp LC(N)  &kp BSPC  &trans  &trans  &trans  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RMETA
+&kp HOME    &kp PG_UP        &kp PG_DN  &kp END    &kp RET   &trans  &trans  &trans  &trans     &trans     &trans    &trans
+            &kp F11          &kp F12    &kp DEL    &trans                    &trans  &trans     &kp F13    &kp F14
             >;
         };
 
         navigation {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &kp H  &kp J  &kp K  &kp L
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+       &none  &none  &none  &none                &none  &none  &none  &none
             >;
         };
 
         media {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
+&none  &none  &none  &none   &none   &trans  &kp K_STOP  &none             &none           &none         &none            &none
+&none  &none  &none  &none   &none   &trans  &trans      &none             &kp K_PREVIOUS  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp K_NEXT
+&none  &none  &none  &none   &none   &trans  &trans      &none             &none           &none         &none            &none
+       &none  &none  &trans  &trans                      &kp K_PLAY_PAUSE  &kp K_MUTE      &none         &none
             >;
         };
 
         system {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR    &trans        &trans        &trans        &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans        &trans        &trans
-        &trans  &trans  &trans  &trans                  &trans        &trans        &trans        &trans
+&trans  &trans      &trans       &trans     &trans  &trans  &bt BT_CLR  &kp K_SLEEP   &trans        &trans        &trans        &kp K_POWER
+&trans  &trans      &trans       &trans     &trans  &trans  &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans  &trans      &trans       &trans     &trans  &trans  &trans      &trans        &trans        &trans        &trans        &trans
+        &sys_reset  &bootloader  &soft_off  &trans                      &trans        &soft_off     &bootloader   &sys_reset
+            >;
+        };
+
+        mouse {
+            bindings = <
+&trans     &trans        &trans     &trans      &trans  &trans  &trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT
+&kp LMETA  &kp LEFT_ALT  &kp LCTRL  &kp LSHIFT  &trans  &trans  &trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
+&trans     &trans        &trans     &trans      &trans  &trans  &trans  &trans  &mkp LCLK       &trans          &trans        &mkp RCLK
+           &trans        &trans     &trans      &trans                  &trans  &trans          &trans          &trans
             >;
         };
     };
