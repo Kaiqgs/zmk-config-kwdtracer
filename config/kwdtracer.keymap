@@ -11,74 +11,16 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    behaviors {
-        td_a: td_a {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_A";
-            #binding-cells = <0>;
-            bindings = <&mt LMETA A>;
-        };
-
-        td_r: td_r {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_R";
-            #binding-cells = <0>;
-            bindings = <&mt LALT R>;
-        };
-
-        td_s: td_s {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_S";
-            #binding-cells = <0>;
-            bindings = <&mt LCTRL S>;
-        };
-
-        td_t: td_t {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_T";
-            #binding-cells = <0>;
-            bindings = <&mt LSHFT T>;
-        };
-
-        td_n: td_n {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_N";
-            #binding-cells = <0>;
-            bindings = <&mt RSHFT N>;
-        };
-
-        td_e: td_e {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_E";
-            #binding-cells = <0>;
-            bindings = <&mt RCTRL E>;
-        };
-
-        td_i: td_i {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_I";
-            #binding-cells = <0>;
-            bindings = <&mt RALT I>;
-        };
-
-        td_o: td_o {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_O";
-            #binding-cells = <0>;
-            bindings = <&mt RMETA O>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         colemodh {
             display-name = "Default Layer";
             bindings = <
-&kp Q  &kp W     &kp F   &kp P      &kp B        &lt 3 ESC    &lt 8 DEL  &kp J          &kp L        &kp U      &kp Y      &kp SEMI
-&td_a  &td_r     &td_s   &td_t      &kp G        &lt 4 TAB    &mo 6      &kp M          &td_n        &td_e      &td_i      &td_o
-&kp Z  &kp X     &kp C   &kp D      &kp V        &lt 7 ENTER  &mo 7      &kp K          &kp H        &kp COMMA  &kp DOT    &kp SLASH
-       &kp DOWN  &kp UP  &kp SPACE  &lt 2 SPACE                          &kp BACKSPACE  &lt 5 ENTER  &kp LEFT   &kp RIGHT
+&kp Q        &kp W       &kp F        &kp P        &kp B        &lt 3 ESC    &lt 8 DEL  &kp J          &kp L        &kp U        &kp Y       &kp SEMI
+&mt LMETA A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G        &lt 4 TAB    &mo 6      &kp M          &mt RSHFT N  &mt RCTRL E  &mt RALT I  &mt RMETA O
+&kp Z        &kp X       &kp C        &kp D        &kp V        &lt 7 ENTER  &mo 7      &kp K          &kp H        &kp COMMA    &kp DOT     &kp SLASH
+             &kp DOWN    &kp UP       &kp SPACE    &lt 2 SPACE                          &kp BACKSPACE  &lt 5 ENTER  &kp LEFT     &kp RIGHT
             >;
         };
 
