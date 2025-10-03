@@ -58,7 +58,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_I";
             #binding-cells = <0>;
-            bindings = <&mt RIGHT_ALT I>;
+            bindings = <&mt RALT I>;
         };
 
         td_o: td_o {
