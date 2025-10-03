@@ -31,10 +31,10 @@
         colemodh {
             display-name = "Default Layer";
             bindings = <
-&kp Q        &kp W       &kp F        &kp P        &kp B        &lt 3 ESC    &lt 8 DEL  &kp J          &kp L        &kp U        &kp Y       &kp SEMI
-&hrm LMETA A &hrm LALT R &hrm LCTRL S &hrm LSHFT T &kp G        &lt 4 TAB    &mo 6      &kp M          &hrm RSHFT N &hrm RCTRL E &hrm RALT I &hrm RMETA O
-&kp Z        &kp X       &kp C        &kp D        &kp V        &lt 7 ENTER  &mo 7      &kp K          &kp H        &kp COMMA    &kp DOT     &kp SLASH
-             &kp DOWN    &kp UP       &kp SPACE    &lt 2 SPACE                          &kp BACKSPACE  &lt 5 ENTER  &kp LEFT     &kp RIGHT
+&kp Q         &kp W        &kp F         &kp P         &kp B        &lt 2 ESC    &lt 7 DEL  &kp J          &kp L         &kp U         &kp Y        &kp SEMI
+&hrm LMETA A  &hrm LALT R  &hrm LCTRL S  &hrm LSHFT T  &kp G        &lt 3 TAB    &mo 5      &kp M          &hrm RSHFT N  &hrm RCTRL E  &hrm RALT I  &hrm RMETA O
+&kp Z         &kp X        &kp C         &kp D         &kp V        &lt 6 ENTER  &mo 6      &kp K          &kp H         &kp COMMA     &kp DOT      &kp SLASH
+              &kp DOWN     &kp UP        &kp SPACE     &lt 1 SPACE                          &kp BACKSPACE  &lt 4 ENTER   &kp LEFT      &kp RIGHT
             >;
         };
 
