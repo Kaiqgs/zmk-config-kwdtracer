@@ -14,22 +14,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        layers {
-            bindings = <
-&trans  &trans  &trans  &trans     &trans       &lt 3 ESC    &lt 8 DEL  &trans         &trans       &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans       &lt 4 TAB    &mo 6      &trans         &trans       &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans       &lt 7 ENTER  &mo 7      &trans         &trans       &trans  &trans  &trans
-        &trans  &trans  &kp SPACE  &lt 2 SPACE                          &kp BACKSPACE  &lt 5 ENTER  &trans  &trans
-            >;
-        };
-
         colemodh {
             display-name = "Default Layer";
             bindings = <
-&kp Q        &kp W       &kp F        &kp P        &kp B   &trans  &trans  &kp J   &kp L         &kp U       &kp Y        &kp SEMI
-&mt LMETA A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G   &trans  &trans  &kp M   &mt RSHIFT N  &mt RALT E  &mt RCTRL I  &mt RMETA O
-&kp Z        &kp X       &kp C        &kp D        &kp V   &trans  &trans  &kp K   &kp H         &kp COMMA   &kp DOT      &kp SLASH
-             &kp DOWN    &kp UP       &trans       &trans                  &trans  &trans        &kp LEFT    &kp RIGHT
+&kp Q        &kp W       &kp F        &kp P        &kp B   &lt 3 ESC  &lt 8 DEL  &kp J   &kp L         &kp U       &kp Y        &kp SEMI
+&mt LMETA A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G   &lt 4 TAB  &mo 6  &kp M   &mt RSHIFT N  &mt RALT E  &mt RCTRL I  &mt RMETA O
+&kp Z        &kp X       &kp C        &kp D        &kp V   &lt 7 ENTER &mo 7  &kp K   &kp H         &kp COMMA   &kp DOT      &kp SLASH
+             &kp DOWN    &kp UP       &kp SPACE    &lt 2 SPACE                  &kp BACKSPACE  &lt 5 ENTER        &kp LEFT    &kp RIGHT
             >;
         };
 
