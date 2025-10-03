@@ -15,6 +15,8 @@
         hrm: behavior_hrm {
             compatible = "zmk,behavior-hold-tap";
             label = "HRM";
+            #binding-cells = <2>;
+            bindings = <&kp &kp>;
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             flavor = "balanced";
