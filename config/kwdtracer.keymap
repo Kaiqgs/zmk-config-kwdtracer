@@ -41,7 +41,7 @@
         symbols {
             bindings = <
 &kp N1        &kp N2         &kp N3        &kp N4        &kp N5         &kp LS(DQT)  &kp GRAVE  &kp N6      &kp N7       &kp N8        &kp N9         &kp N0
-&kp MINUS     &kp EQUAL      &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(UNDER)  &kp SQT      &kp SQT    &kp LSHFT   &kp RSHFT    &kp RCTRL     &kp RALT       &kp LG(RGUI)
+&kp MINUS     &kp EQUAL      &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(UNDER)  &kp SQT      &kp SQT    &kp STAR    &kp RSHFT    &kp RCTRL     &kp RALT       &kp LG(RGUI)
 &kp LS(PLUS)  &kp LS(POUND)  &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(PRCNT)  &kp GRAVE    &kp GRAVE  &kp LS(AT)  &kp LBKT     &kp RBKT      &kp LS(AMPS)   &kp BSLH
               &kp LS(CARET)  &kp LS(DLLR)  &kp ESC       &none                                  &kp SQT     &kp LS(DQT)  &kp LS(EXCL)  &kp LS(TILDE)
             >;
