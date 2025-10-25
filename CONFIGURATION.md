@@ -24,16 +24,13 @@ CONFIG_ZMK_SPLIT_BLE=y
 ```
 **Purpose**: Enables Bluetooth-based split keyboard communication. This is required for wireless split functionality.
 
-### Battery Level Monitoring (Optional)
+### Battery Level Monitoring
 ```
 CONFIG_ZMK_BATTERY_REPORTING=y
-CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=y
-CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y
 ```
-**Purpose**: 
-- Enables battery level reporting to host devices
-- Allows central to fetch peripheral's battery level
-- Proxies peripheral battery level to host through central
+**Purpose**: Enables battery level reporting to host devices for both sides.
+
+**Note**: Central-specific battery features are configured in `kwdtracer_left.conf` to avoid build errors on the peripheral.
 
 ### Connection Reliability Improvements (Optional)
 ```
@@ -62,9 +59,10 @@ CONFIG_ZMK_EXT_POWER=y
 ### Pointing Device Support
 ```
 CONFIG_ZMK_POINTING=y
-CONFIG_ZMK_POINTING_SMOOTH_SCROLLING=y
 ```
-**Purpose**: Enables pointing device support (trackball, trackpad) with smooth scrolling feature.
+**Purpose**: Enables pointing device support (trackball, trackpad).
+
+**Note**: `CONFIG_ZMK_POINTING_SMOOTH_SCROLLING` is enabled only on the left (central) side as it requires central role.
 
 ### USB Logging
 ```
@@ -75,23 +73,33 @@ CONFIG_ZMK_USB_LOGGING=y
 
 ## Left Side Configuration (`kwdtracer_left.conf`)
 
-### External Power Control
-```
-CONFIG_ZMK_EXT_POWER=y
-```
-**Purpose**: Enables external power control on the central (left) side.
-
 ### Split Central Role
 ```
 CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
 ```
 **Purpose**: Explicitly sets this side as the central (main) controller. The central handles all HID communication with host devices and runs the keymap logic.
 
-### BLE Settings
+**Important**: The peripheral (right side) does NOT need a corresponding `CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL` setting. In ZMK, devices default to peripheral role when `CONFIG_ZMK_SPLIT_ROLE_CENTRAL` is not set.
+
+### Central-Specific Battery Features
 ```
-CONFIG_ZMK_BLE_EXPERIMENTAL_CONN=y
+CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=y
+CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y
 ```
-**Purpose**: Enables experimental BLE connection improvements for more stable communication with peripherals and host devices.
+**Purpose**: 
+- Allows central to fetch peripheral's battery level over BLE
+- Proxies peripheral battery level to host through central
+- Both sides can report their battery levels independently
+
+**Dependency**: Requires `CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y` (only valid on central)
+
+### Pointing Smooth Scrolling
+```
+CONFIG_ZMK_POINTING_SMOOTH_SCROLLING=y
+```
+**Purpose**: Enables smooth scrolling feature for pointing devices.
+
+**Dependency**: Requires `CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y` or non-split keyboard
 
 ### Sleep/Wake Functionality
 ```
@@ -107,17 +115,22 @@ CONFIG_ZMK_EXT_POWER=y
 ```
 **Purpose**: Enables the right side to control its own external power independently. This allows the peripheral to manage LEDs and other peripherals without relying on the central.
 
-### Split Peripheral Role
+### Peripheral Role (Implicit)
+**Note**: The peripheral role is automatically assigned when `CONFIG_ZMK_SPLIT_ROLE_CENTRAL` is NOT set. There is no `CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL` setting in ZMK - peripherals are defined by the absence of the central role setting.
+
+### HID Indicators Support
 ```
-CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL=y
+CONFIG_ZMK_HID_INDICATORS=y
 ```
-**Purpose**: Explicitly sets this side as a peripheral. Peripherals send key events to the central but don't directly communicate with host devices.
+**Purpose**: Enables HID indicator support (caps lock, num lock, etc.). This is a prerequisite for peripheral HID indicators.
 
 ### Independent Input Processing
 ```
 CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS=y
 ```
 **Purpose**: Allows the peripheral to process and respond to inputs independently. This is critical for handling system commands (reset, bootloader, ext_power) when disconnected from the central.
+
+**Dependency**: Requires `CONFIG_ZMK_HID_INDICATORS=y`
 
 **Key Benefit**: Without this setting, the peripheral becomes unresponsive when disconnected and requires manual power cycling.
 
@@ -183,6 +196,32 @@ Configuration settings are applied in this order (later overrides earlier):
 4. `boards/shields/kwdtracer/kwdtracer_left.conf` or `kwdtracer_right.conf` (side-specific)
 
 This means side-specific settings will override shared settings if there's a conflict.
+
+## Important Configuration Notes
+
+### Role-Specific Settings
+
+Some configuration options only work on the central or have dependencies:
+
+**Central-Only Settings:**
+- `CONFIG_ZMK_SPLIT_ROLE_CENTRAL` - Defines this side as central
+- `CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING` - Requires central role
+- `CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY` - Requires central role
+- `CONFIG_ZMK_POINTING_SMOOTH_SCROLLING` - Requires central role
+- `CONFIG_ZMK_USB` - Automatically enabled only on central in split configurations
+
+**Peripheral-Specific Settings:**
+- No explicit peripheral role setting needed (implicit when not central)
+- `CONFIG_ZMK_HID_INDICATORS` - Required for peripheral HID indicators
+- `CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS` - Enables independent input processing
+
+### Common Mistakes
+
+1. **Don't use `CONFIG_ZMK_SPLIT_ROLE_PERIPHERAL`** - This setting doesn't exist in ZMK. The peripheral role is implicit.
+
+2. **Don't put central-specific settings in shared config** - Settings like battery level fetching and smooth scrolling will cause build errors on the peripheral.
+
+3. **Enable HID indicators before peripheral HID indicators** - `CONFIG_ZMK_HID_INDICATORS=y` must come before `CONFIG_ZMK_SPLIT_PERIPHERAL_HID_INDICATORS=y`.
 
 ## Related Documentation
 
