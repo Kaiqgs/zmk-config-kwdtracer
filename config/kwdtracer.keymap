@@ -26,13 +26,13 @@
             require-prior-idle-ms = <40>;
             hold-trigger-on-release;
         };
-        &mmv {
+        mmv: behavior_mouse_movement {
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
             time-to-max-speed-ms = <150>;
             acceleration-exponent = <1>;
         };
-        &msc {
+        msc: behavior_mouse_scroll {
             x-input-code = <INPUT_REL_HWHEEL>;
             y-input-code = <INPUT_REL_WHEEL>;
             time-to-max-speed-ms = <150>;
