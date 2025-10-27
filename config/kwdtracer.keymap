@@ -27,17 +27,6 @@
             hold-trigger-on-release;
         };
     };
-};
-
-&mmv {
-    time-to-max-speed-ms = <150>;
-    acceleration-exponent = <1>;
-};
-
-&msc {
-    time-to-max-speed-ms = <150>;
-    acceleration-exponent = <0>;
-};
 
     keymap {
         compatible = "zmk,keymap";
@@ -124,4 +113,14 @@
             >;
         };
     };
+};
+
+&mmv {
+    time-to-max-speed-ms = <150>;
+    acceleration-exponent = <1>;
+};
+
+&msc {
+    time-to-max-speed-ms = <150>;
+    acceleration-exponent = <0>;
 };
