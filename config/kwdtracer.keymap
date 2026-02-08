@@ -112,6 +112,15 @@
         &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
             >;
         };
+
+        travel {
+            bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+       &none  &none  &none  &none                &none  &none  &none  &none
+            >;
+        };
     };
 };
 
