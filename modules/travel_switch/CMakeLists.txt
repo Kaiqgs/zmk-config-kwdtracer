@@ -1,2 +1,3 @@
 zephyr_library_named(travel_switch)
 zephyr_library_sources_ifdef(CONFIG_TRAVEL_SWITCH src/travel_switch.c)
+zephyr_library_include_directories_ifdef(CONFIG_TRAVEL_SWITCH ${APPLICATION_SOURCE_DIR}/include)
