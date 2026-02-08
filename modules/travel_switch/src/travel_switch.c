@@ -11,9 +11,9 @@
 #include <zephyr/input/input.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
-#include <zephyr/sys/poweroff.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
-#include <dt-bindings/input/input-event-codes.h>
+#include <zmk/pm.h>
 
 LOG_MODULE_REGISTER(travel_switch, CONFIG_LOG_DEFAULT_LEVEL);
 
@@ -69,7 +69,7 @@ static void enter_soft_off(void)
     LOG_INF("Entering soft_off");
     state = STATE_SHUTTING_DOWN;
     led_off();
-    sys_poweroff();
+    zmk_pm_soft_off();
 }
 
 static void soft_off_handler(struct k_work *work)
