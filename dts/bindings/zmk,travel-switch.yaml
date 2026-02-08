@@ -6,11 +6,6 @@ description: |
 compatible: "zmk,travel-switch"
 
 properties:
-  led-gpios:
-    type: phandle-array
-    required: true
-    description: GPIO for the travel switch LED output.
-
   hold-time-ms:
     type: int
     default: 5000

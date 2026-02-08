@@ -43,9 +43,15 @@
         wakeup-sources = <&travel_key_wakeup_trigger>;
     };
 
+    leds {
+        compatible = "gpio-leds";
+        travel_led: travel_led {
+            gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
+        };
+    };
+
     travel_switch {
         compatible = "zmk,travel-switch";
-        led-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
         hold-time-ms = <5000>;       /* N: hold to toggle */
         led-timeout-ms = <3000>;     /* M: LED stays on after short press */
         blink-count = <2>;

@@ -23,7 +23,7 @@ LOG_MODULE_REGISTER(travel_switch, CONFIG_LOG_DEFAULT_LEVEL);
 
 #define TRAVEL_NODE DT_INST(0, zmk_travel_switch)
 
-static const struct gpio_dt_spec led_gpio = GPIO_DT_SPEC_GET(TRAVEL_NODE, led_gpios);
+static const struct gpio_dt_spec led_gpio = GPIO_DT_SPEC_GET(DT_NODELABEL(travel_led), gpios);
 
 static const uint32_t hold_time_ms = DT_PROP(TRAVEL_NODE, hold_time_ms);
 static const uint32_t led_timeout_ms = DT_PROP(TRAVEL_NODE, led_timeout_ms);
