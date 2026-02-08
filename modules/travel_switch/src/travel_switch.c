@@ -201,7 +201,7 @@ static void on_release(void)
     }
 }
 
-static void travel_switch_input_cb(struct input_event *evt, void *user_data)
+static void travel_switch_input_cb(struct input_event *evt)
 {
     if (evt->code != INPUT_KEY_POWER) {
         return;
@@ -214,7 +214,7 @@ static void travel_switch_input_cb(struct input_event *evt, void *user_data)
     }
 }
 
-INPUT_CALLBACK_DEFINE(NULL, travel_switch_input_cb, NULL);
+INPUT_CALLBACK_DEFINE(NULL, travel_switch_input_cb);
 
 static int travel_switch_init(void)
 {
