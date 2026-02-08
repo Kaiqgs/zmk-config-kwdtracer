@@ -1,5 +1,6 @@
 build:
   settings:
     board_root: .
+    dts_root: .
   cmake: modules/travel_switch
   kconfig: modules/travel_switch/Kconfig
