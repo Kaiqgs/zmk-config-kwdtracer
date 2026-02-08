@@ -1,0 +1,4 @@
+config TRAVEL_SWITCH
+    bool "Travel switch with LED feedback and soft_off"
+    default n
+    depends on GPIO

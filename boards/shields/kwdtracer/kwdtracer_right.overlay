@@ -1,4 +1,5 @@
 #include "kwdtracer.dtsi" // The shared dtsi file is included in the overlay
+#include <dt-bindings/input/input-event-codes.h>
 
 &default_transform {
     col-offset = <6>;
@@ -23,12 +24,31 @@
 };
 
 / {
-    ext-power {
-        compatible = "zmk,ext-power-generic";
-        label = "EXT_POWER";
-        control-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
-        init-delay-ms = <50>;
+    keys {
+        compatible = "gpio-keys";
+        travel_key: travel_key {
+            gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+            zephyr,code = <INPUT_KEY_POWER>;
+        };
+    };
+
+    travel_key_wakeup_trigger: travel_key_wakeup_trigger {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&travel_key>;
+        wakeup-source;
+    };
+
+    soft_off_wakeup_sources {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&travel_key_wakeup_trigger>;
+    };
+
+    travel_switch {
+        compatible = "zmk,travel-switch";
+        led-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
+        hold-time-ms = <5000>;       /* N: hold to toggle */
+        led-timeout-ms = <3000>;     /* M: LED stays on after short press */
+        blink-count = <2>;
+        blink-interval-ms = <1000>;  /* O: blink cycle duration */
     };
 };
-
-

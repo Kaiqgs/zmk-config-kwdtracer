@@ -9,7 +9,6 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -88,10 +87,10 @@
 
         system {
             bindings = <
-&kp K_PWR       &bt BT_DISC 0  &bt BT_DISC 1     &bt BT_DISC 2      &kp K_SLEEP        &bt BT_CLR  &bt BT_CLR  &kp K_SLEEP        &bt BT_DISC 0      &bt BT_DISC 1     &bt BT_DISC 2  &kp K_POWER
-&none           &bt BT_SEL 0   &bt BT_SEL 1      &bt BT_SEL 2       &none              &soft_off   &soft_off   &none              &bt BT_SEL 0       &bt BT_SEL 1      &bt BT_SEL 2   &none
-&bt BT_CLR_ALL  &none          &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none       &none       &ext_power EP_TOG  &ext_power EP_OFF  &ext_power EP_ON  &none          &bt BT_CLR_ALL
-                &to 0          &to 8             &sys_reset         &bootloader                                &bootloader        &sys_reset         &to 8             &to 0
+&kp K_PWR       &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &kp K_SLEEP  &bt BT_CLR  &bt BT_CLR  &kp K_SLEEP  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &kp K_POWER
+&none           &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &none        &soft_off   &soft_off   &none        &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &none
+&bt BT_CLR_ALL  &none          &none          &none          &none        &none       &none       &none        &none          &none          &none          &bt BT_CLR_ALL
+                &to 0          &none          &sys_reset     &bootloader                          &bootloader  &sys_reset     &none          &to 0
             >;
         };
 
@@ -110,15 +109,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        travel {
-            bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-       &none  &none  &none  &none                &none  &none  &none  &none
             >;
         };
     };

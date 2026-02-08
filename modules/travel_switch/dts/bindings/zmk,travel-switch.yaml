@@ -1,0 +1,37 @@
+description: |
+  Travel switch module with LED feedback and soft_off support.
+  Listens for gpio-keys input events (INPUT_KEY_POWER) and controls
+  an LED GPIO. Implements hold detection for entering/exiting soft_off.
+
+compatible: "zmk,travel-switch"
+
+properties:
+  led-gpios:
+    type: phandle-array
+    required: true
+    description: GPIO for the travel switch LED output.
+
+  hold-time-ms:
+    type: int
+    default: 5000
+    description: |
+      Hold duration in milliseconds to trigger soft_off (when awake)
+      or confirm wakeup (when waking from soft_off).
+
+  led-timeout-ms:
+    type: int
+    default: 3000
+    description: |
+      Duration in milliseconds the LED stays on after a short press
+      release (press shorter than hold-time-ms).
+
+  blink-count:
+    type: int
+    default: 2
+    description: Number of LED blinks on successful toggle.
+
+  blink-interval-ms:
+    type: int
+    default: 500
+    description: |
+      Full blink cycle duration in milliseconds (one on phase + one off phase).

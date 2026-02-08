@@ -1,0 +1,2 @@
+zephyr_library_named(travel_switch)
+zephyr_library_sources_ifdef(CONFIG_TRAVEL_SWITCH src/travel_switch.c)
