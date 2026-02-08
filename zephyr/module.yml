@@ -3,6 +3,3 @@ build:
     board_root: .
   cmake: modules/travel_switch
   kconfig: modules/travel_switch/Kconfig
-  dts:
-    bindings:
-      - modules/travel_switch/dts/bindings
