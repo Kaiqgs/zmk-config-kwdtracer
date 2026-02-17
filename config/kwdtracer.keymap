@@ -20,7 +20,7 @@
             label = "HRM";
             #binding-cells = <2>;
             bindings = <&kp &kp>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             quick-tap-ms = <175>;
             flavor = "balanced";
             require-prior-idle-ms = <40>;
