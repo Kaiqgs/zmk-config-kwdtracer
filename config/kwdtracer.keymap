@@ -20,7 +20,7 @@
             label = "HRM";
             #binding-cells = <2>;
             bindings = <&kp &kp>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <175>;
             flavor = "balanced";
             require-prior-idle-ms = <40>;
@@ -106,10 +106,10 @@
 
         game {
             bindings = <
-&kp TAB    &kp N1     &kp N2     &kp N3  &kp N4  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LSHFT  &kp Q      &kp W      &kp E   &kp T   &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LCTRL  &kp A      &kp S      &kp D   &kp F   &trans  &trans  &trans  &trans  &trans  &trans  &trans
-           &kp SPACE  &kp SPACE  &trans  &trans                  &trans  &trans  &trans  &trans
+&kp TAB    &kp N1  &kp N2  &kp N3     &kp N4     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LSHFT  &kp Q   &kp W   &kp E      &kp T      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &kp A   &kp S   &kp D      &kp F      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+           &trans  &trans  &kp SPACE  &kp SPACE                  &trans  &trans  &trans  &trans
             >;
         };
     };
