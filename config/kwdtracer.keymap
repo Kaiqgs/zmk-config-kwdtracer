@@ -34,10 +34,19 @@
         colemodh {
             display-name = "Default Layer";
             bindings = <
-&kp Q         &kp W        &kp F         &kp P         &kp B        &lt 2 ESC    &lt 7 DEL  &kp J          &kp L         &kp U         &kp Y        &kp SEMI
-&hrm LMETA A  &hrm LALT R  &hrm LCTRL S  &hrm LSHFT T  &kp G        &lt 3 TAB    &mo 5      &kp M          &hrm RSHFT N  &hrm RCTRL E  &hrm RALT I  &hrm RMETA O
-&kp Z         &kp X        &kp C         &kp D         &kp V        &lt 6 ENTER  &mo 6      &kp K          &kp H         &kp COMMA     &kp DOT      &kp SLASH
-              &kp DOWN     &kp UP        &kp SPACE     &lt 1 SPACE                          &kp BACKSPACE  &lt 4 ENTER   &kp LEFT      &kp RIGHT
+&kp Q         &kp W        &kp F         &kp P         &kp B        &lt 3 ESC    &lt 8 DEL  &kp J          &kp L         &kp U         &kp Y        &kp SEMI
+&hrm LMETA A  &hrm LALT R  &hrm LCTRL S  &hrm LSHFT T  &kp G        &lt 4 TAB    &mo 6      &kp M          &hrm RSHFT N  &hrm RCTRL E  &hrm RALT I  &hrm RMETA O
+&kp Z         &kp X        &kp C         &kp D         &kp V        &lt 7 ENTER  &mo 7      &kp K          &kp H         &kp COMMA     &kp DOT      &kp SLASH
+              &kp DOWN     &kp UP        &kp SPACE     &lt 2 SPACE                          &kp BACKSPACE  &lt 5 ENTER   &kp LEFT      &kp RIGHT
+            >;
+        };
+
+        game {
+            bindings = <
+&kp TAB    &kp N1  &kp N2  &kp N3     &kp N4     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LSHFT  &kp Q   &kp W   &kp E      &kp T      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &kp A   &kp S   &kp D      &kp F      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+           &trans  &trans  &kp SPACE  &kp SPACE                  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -91,7 +100,7 @@
 &kp K_PWR       &bt BT_DISC 0  &bt BT_DISC 1     &bt BT_DISC 2      &kp K_SLEEP        &bt BT_CLR  &bt BT_CLR  &kp K_SLEEP        &bt BT_DISC 0      &bt BT_DISC 1     &bt BT_DISC 2  &kp K_POWER
 &none           &bt BT_SEL 0   &bt BT_SEL 1      &bt BT_SEL 2       &none              &soft_off   &soft_off   &none              &bt BT_SEL 0       &bt BT_SEL 1      &bt BT_SEL 2   &none
 &bt BT_CLR_ALL  &none          &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none       &none       &ext_power EP_TOG  &ext_power EP_OFF  &ext_power EP_ON  &none          &bt BT_CLR_ALL
-                &to 0          &to 8             &sys_reset         &bootloader                                &bootloader        &sys_reset         &to 8             &to 0
+                &to 0          &to 1             &sys_reset         &bootloader                                &bootloader        &sys_reset         &to 1             &to 0
             >;
         };
 
@@ -101,15 +110,6 @@
 &kp LMETA  &kp LEFT_ALT  &kp LCTRL  &kp LSHIFT  &trans  &trans  &trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
 &trans     &trans        &trans     &trans      &trans  &trans  &trans  &trans  &mkp LCLK       &mkp MCLK       &mkp MB5      &mkp RCLK
            &trans        &trans     &trans      &trans                  &trans  &trans          &trans          &trans
-            >;
-        };
-
-        game {
-            bindings = <
-&kp TAB    &kp N1  &kp N2  &kp N3     &kp N4     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LSHFT  &kp Q   &kp W   &kp E      &kp T      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LCTRL  &kp A   &kp S   &kp D      &kp F      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-           &trans  &trans  &kp SPACE  &kp SPACE                  &trans  &trans  &trans  &trans
             >;
         };
     };
