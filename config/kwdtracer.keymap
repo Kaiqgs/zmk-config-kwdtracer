@@ -26,6 +26,39 @@
             require-prior-idle-ms = <70>;
             hold-trigger-on-release;
         };
+
+        /*
+         * Uppercase for the dead-key accents only.
+         *
+         * mod-morph masks its trigger mods by default, so shift both selects the
+         * uppercase branch AND is stripped before the prefix goes out. Without
+         * that, a leaked shift would turn AltGr+` (dead_grave) into AltGr+shift+`
+         * (dead_tilde), and A-grave would silently come out as A-tilde.
+         */
+        pt_ac: pt_ac { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&dk_circ A>, <&dk_circ LS(A)>; mods = <(MOD_LSFT|MOD_RSFT)>; };  // â Â
+        pt_ec: pt_ec { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&dk_circ E>, <&dk_circ LS(E)>; mods = <(MOD_LSFT|MOD_RSFT)>; };  // ê Ê
+        pt_oc: pt_oc { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&dk_circ O>, <&dk_circ LS(O)>; mods = <(MOD_LSFT|MOD_RSFT)>; };  // ô Ô
+        pt_at: pt_at { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&dk_tilde A>, <&dk_tilde LS(A)>; mods = <(MOD_LSFT|MOD_RSFT)>; };  // ã Ã
+        pt_ot: pt_ot { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&dk_tilde O>, <&dk_tilde LS(O)>; mods = <(MOD_LSFT|MOD_RSFT)>; };  // õ Õ
+        pt_ag: pt_ag { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&dk_grave A>, <&dk_grave LS(A)>; mods = <(MOD_LSFT|MOD_RSFT)>; };  // à À
+    };
+
+    macros {
+        /*
+         * Dead-key prefixes, for the three accents the layout does NOT map
+         * directly. Layout: setxkbmap us -variant altgr-intl
+         *
+         *   AltGr+6         dead_circumflex
+         *   AltGr+`         dead_grave
+         *   AltGr+shift+`   dead_tilde
+         *
+         * The acutes, the trema and the cedilla need none of this: altgr-intl
+         * includes us(intl), which puts them straight on AltGr+letter, with the
+         * capital sitting on level 4 so shift works by itself. See the layer.
+         */
+        dk_circ:  dk_circ  { compatible = "zmk,behavior-macro-one-param"; #binding-cells = <1>; wait-ms = <10>; tap-ms = <10>; bindings = <&kp RA(N6)>,        <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>; };
+        dk_grave: dk_grave { compatible = "zmk,behavior-macro-one-param"; #binding-cells = <1>; wait-ms = <10>; tap-ms = <10>; bindings = <&kp RA(GRAVE)>,     <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>; };
+        dk_tilde: dk_tilde { compatible = "zmk,behavior-macro-one-param"; #binding-cells = <1>; wait-ms = <10>; tap-ms = <10>; bindings = <&kp RA(LS(GRAVE))>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>; };
     };
 
     keymap {
@@ -55,7 +88,7 @@
 &kp N1        &kp N2         &kp N3        &kp N4        &kp N5         &kp LS(DQT)  &kp GRAVE  &kp N6      &kp N7            &kp N8            &kp N9         &kp N0
 &kp MINUS     &kp EQUAL      &kp LS(LPAR)  &kp LS(RPAR)  &kp LS(UNDER)  &kp SQT      &kp SQT    &kp STAR    &hrm RSHFT QMARK  &hrm RCTRL COLON  &hrm RALT LT   &hrm LG(RGUI) GT
 &kp LS(PLUS)  &kp LS(POUND)  &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(PRCNT)  &kp GRAVE    &kp GRAVE  &kp LS(AT)  &kp LBKT          &kp RBKT          &kp LS(AMPS)   &kp BSLH
-              &kp LS(CARET)  &kp LS(DLLR)  &kp ESC       &none                                  &kp SQT     &kp LS(DQT)       &kp LS(EXCL)      &kp LS(TILDE)
+              &kp LS(CARET)  &kp LS(DLLR)  &mo 9         &none                                  &kp SQT     &kp LS(DQT)       &kp LS(EXCL)      &kp LS(TILDE)
             >;
         };
 
@@ -110,6 +143,16 @@
 &kp LMETA  &kp LEFT_ALT  &kp LCTRL  &kp LSHIFT  &trans  &trans  &trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
 &trans     &trans        &trans     &trans      &trans  &trans  &trans  &trans  &mkp LCLK       &mkp MCLK       &mkp MB5      &mkp RCLK
            &trans        &trans     &trans      &trans                  &trans  &trans          &trans          &trans
+            >;
+        };
+
+        accents {
+            display-name = "Accents";
+            bindings = <
+&pt_ac      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RA(U)  &kp RA(Y)  &pt_oc
+&kp RA(A)   &pt_ag  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RA(E)  &kp RA(I)  &kp RA(O)
+&pt_at      &trans  &kp RA(COMMA)   &trans  &trans  &trans  &trans  &trans  &trans  &pt_ec  &trans  &pt_ot
+        &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans
             >;
         };
     };
